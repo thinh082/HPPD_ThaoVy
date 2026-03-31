@@ -120,16 +120,16 @@
                 <span class="text-xl font-bold italic text-[#9f3164] font-headline">The Jubilant Editorial</span>
             </div>
             <nav class="hidden md:flex gap-8">
-                <a class="text-[#9f3164] font-bold font-headline transition-opacity hover:opacity-80" href="#">Trang
-                    chủ</a>
-                <a class="text-[#4a2134]/70 font-headline transition-opacity hover:opacity-80" href="#">Video</a>
-                <a class="text-[#4a2134]/70 font-headline transition-opacity hover:opacity-80" href="#">Thư viện ảnh</a>
+                <button class="text-[#9f3164] font-bold font-headline transition-opacity hover:opacity-80" onclick="switchTab('home')">Trang chủ</button>
+                <button class="text-[#4a2134]/70 font-headline transition-opacity hover:opacity-80" onclick="switchTab('video')">Video</button>
+                <button class="text-[#4a2134]/70 font-headline transition-opacity hover:opacity-80">Thư viện ảnh</button>
             </nav>
             <button class="material-symbols-outlined text-[#9f3164] transition-opacity hover:opacity-80"
                 data-icon="menu">menu</button>
         </div>
     </header>
-    <main class="relative pt-24 pb-32">
+    <div id="home-section" class="transition-all duration-500 opacity-100 visible">
+        <main class="relative pt-24 pb-32">
         <!-- Background Decoration (Confetti Canvas) -->
         <div class="fixed inset-0 pointer-events-none confetti-canvas z-0"></div>
         <!-- Hero Section -->
@@ -264,20 +264,52 @@
         <p class="font-['Be_Vietnam_Pro'] text-label-md text-[#4a2134]/60">© 2024 The Kinetic Keepsake. Được tạo ra với
             niềm vui.</p>
     </footer>
+    </div>
+
+    <!-- Video Section -->
+    <div id="video-section" class="fixed inset-0 z-40 hidden opacity-0 transition-opacity duration-500 bg-[#fff4f6] pt-[72px] pb-[88px] overflow-y-scroll snap-y snap-mandatory bg-black">
+        <div class="h-full w-full snap-center relative flex justify-center items-center">
+            <video src="https://res.cloudinary.com/dbim9avit/video/upload/v1774954944/video_kpwsuk.mp4" class="h-full w-full object-cover" loop preload="metadata" playsinline></video>
+            <div class="absolute inset-0 flex items-center justify-center transition-opacity cursor-pointer play-pause-trigger">
+                <span class="material-symbols-outlined text-white text-6xl drop-shadow-lg" data-icon="play_circle" style="text-shadow: 0px 4px 12px rgba(0,0,0,0.5);">play_circle</span>
+            </div>
+        </div>
+        <div class="h-full w-full snap-center relative flex justify-center items-center">
+            <video src="https://res.cloudinary.com/dbim9avit/video/upload/v1774956193/video_6_fun65g.mp4" class="h-full w-full object-cover" loop preload="metadata" playsinline></video>
+            <div class="absolute inset-0 flex items-center justify-center transition-opacity cursor-pointer play-pause-trigger">
+                <span class="material-symbols-outlined text-white text-6xl drop-shadow-lg" data-icon="play_circle" style="text-shadow: 0px 4px 12px rgba(0,0,0,0.5);">play_circle</span>
+            </div>
+        </div>
+        <div class="h-full w-full snap-center relative flex justify-center items-center">
+            <video src="https://res.cloudinary.com/dbim9avit/video/upload/v1774954942/video_1_occlim.mp4" class="h-full w-full object-cover" loop preload="metadata" playsinline></video>
+            <div class="absolute inset-0 flex items-center justify-center transition-opacity cursor-pointer play-pause-trigger">
+                <span class="material-symbols-outlined text-white text-6xl drop-shadow-lg" data-icon="play_circle" style="text-shadow: 0px 4px 12px rgba(0,0,0,0.5);">play_circle</span>
+            </div>
+        </div>
+        <div class="h-full w-full snap-center relative flex justify-center items-center">
+            <video src="https://res.cloudinary.com/dbim9avit/video/upload/v1774954946/video_2_atk7lq.mp4" class="h-full w-full object-cover" loop preload="metadata" playsinline></video>
+            <div class="absolute inset-0 flex items-center justify-center transition-opacity cursor-pointer play-pause-trigger">
+                <span class="material-symbols-outlined text-white text-6xl drop-shadow-lg" data-icon="play_circle" style="text-shadow: 0px 4px 12px rgba(0,0,0,0.5);">play_circle</span>
+            </div>
+        </div>
+        <div class="h-full w-full snap-center relative flex justify-center items-center">
+            <video src="https://res.cloudinary.com/dbim9avit/video/upload/v1774956193/video_4_sxwoua.mp4" class="h-full w-full object-cover" loop preload="metadata" playsinline></video>
+            <div class="absolute inset-0 flex items-center justify-center transition-opacity cursor-pointer play-pause-trigger">
+                <span class="material-symbols-outlined text-white text-6xl drop-shadow-lg" data-icon="play_circle" style="text-shadow: 0px 4px 12px rgba(0,0,0,0.5);">play_circle</span>
+            </div>
+        </div>
+    </div>
     <!-- BottomNavBar (Mobile Only) -->
     <nav
         class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-[#fff4f6]/60 backdrop-blur-md shadow-[0_-8px_24px_rgba(74,33,52,0.04)] rounded-t-[3rem] flex justify-around items-center px-4 pb-4 pt-2">
-        <a class="flex flex-col items-center justify-center bg-[#ffe0ea] text-[#9f3164] rounded-full px-4 py-1"
-            href="#">
-            <span class="material-symbols-outlined" data-icon="home"
-                style="font-variation-settings: 'FILL' 1;">home</span>
+        <button id="nav-btn-home" class="flex flex-col items-center justify-center bg-[#ffe0ea] text-[#9f3164] rounded-full px-4 py-1 transition-all" onclick="switchTab('home')">
+            <span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
             <span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium">Trang chủ</span>
-        </a>
-        <a class="flex flex-col items-center justify-center text-[#4a2134] hover:bg-[#ffecf1] rounded-full p-2 transition-all"
-            href="#">
+        </button>
+        <button id="nav-btn-video" class="flex flex-col items-center justify-center text-[#4a2134] hover:bg-[#ffecf1] rounded-full p-2 transition-all" onclick="switchTab('video')">
             <span class="material-symbols-outlined" data-icon="movie">movie</span>
             <span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium">Video</span>
-        </a>
+        </button>
         <a class="flex flex-col items-center justify-center text-[#4a2134] hover:bg-[#ffecf1] rounded-full p-2 transition-all"
             href="#">
             <span class="material-symbols-outlined" data-icon="audiotrack">audiotrack</span>
@@ -294,6 +326,118 @@
             <span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium">Lời chúc</span>
         </a>
     </nav>
+    <script>
+        // SPA Tab Switching Logic
+        function switchTab(tabId) {
+            const homeSection = document.getElementById('home-section');
+            const videoSection = document.getElementById('video-section');
+            const navHome = document.getElementById('nav-btn-home');
+            const navVideo = document.getElementById('nav-btn-video');
+
+            if (tabId === 'video') {
+                // UI changes
+                homeSection.classList.replace('opacity-100', 'opacity-0');
+                homeSection.classList.replace('visible', 'invisible');
+                setTimeout(() => {
+                    homeSection.classList.add('hidden');
+                    videoSection.classList.remove('hidden');
+                    setTimeout(() => {
+                        videoSection.classList.replace('opacity-0', 'opacity-100');
+                    }, 50);
+                }, 300);
+
+                // Update bottom nav styling
+                if (navHome && navVideo) {
+                    navHome.className = "flex flex-col items-center justify-center text-[#4a2134] hover:bg-[#ffecf1] rounded-full p-2 transition-all";
+                    navHome.querySelector('span:first-child').style.fontVariationSettings = "'FILL' 0";
+                    
+                    navVideo.className = "flex flex-col items-center justify-center bg-[#ffe0ea] text-[#9f3164] rounded-full px-4 py-1 transition-all";
+                    navVideo.querySelector('span:first-child').style.fontVariationSettings = "'FILL' 1";
+                }
+            } else {
+                // UI changes
+                videoSection.classList.replace('opacity-100', 'opacity-0');
+                setTimeout(() => {
+                    videoSection.classList.add('hidden');
+                    homeSection.classList.remove('hidden');
+                    setTimeout(() => {
+                        homeSection.classList.replace('opacity-0', 'opacity-100');
+                        homeSection.classList.replace('invisible', 'visible');
+                    }, 50);
+                }, 300);
+                
+                // Update bottom nav styling
+                if (navHome && navVideo) {
+                    navVideo.className = "flex flex-col items-center justify-center text-[#4a2134] hover:bg-[#ffecf1] rounded-full p-2 transition-all";
+                    navVideo.querySelector('span:first-child').style.fontVariationSettings = "'FILL' 0";
+
+                    navHome.className = "flex flex-col items-center justify-center bg-[#ffe0ea] text-[#9f3164] rounded-full px-4 py-1 transition-all";
+                    navHome.querySelector('span:first-child').style.fontVariationSettings = "'FILL' 1";
+                }
+                
+                // Pause all videos
+                document.querySelectorAll('#video-section video').forEach(v => { 
+                    v.pause();
+                    const icon = v.nextElementSibling.querySelector('span');
+                    icon.textContent = 'play_circle';
+                    v.nextElementSibling.style.opacity = '1';
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const videos = document.querySelectorAll('#video-section video');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const video = entry.target;
+                    const overlay = video.nextElementSibling;
+                    const icon = overlay.querySelector('span');
+
+                    if (entry.isIntersecting) {
+                        if (!document.getElementById('video-section').classList.contains('hidden')) {
+                            video.play().then(() => {
+                                icon.textContent = 'pause_circle';
+                                overlay.style.opacity = '0'; // Hide play button when playing
+                            }).catch(e => {
+                                console.log('Autoplay prevented:', e);
+                                icon.textContent = 'play_circle';
+                                overlay.style.opacity = '1';
+                            });
+                        }
+                    } else {
+                        video.pause();
+                        icon.textContent = 'play_circle';
+                        overlay.style.opacity = '1';
+                    }
+                });
+            }, {
+                root: document.getElementById('video-section'),
+                threshold: 0.6
+            });
+
+            videos.forEach(video => {
+                observer.observe(video);
+                const overlay = video.nextElementSibling;
+                const icon = overlay.querySelector('span');
+
+                const togglePlay = () => {
+                    if (video.paused) {
+                        video.play();
+                        icon.textContent = 'pause_circle';
+                        overlay.style.opacity = '0';
+                    } else {
+                        video.pause();
+                        icon.textContent = 'play_circle';
+                        overlay.style.opacity = '1';
+                    }
+                };
+
+                video.addEventListener('click', togglePlay);
+                overlay.addEventListener('click', togglePlay);
+            });
+        });
+    </script>
 </body>
 
 </html>

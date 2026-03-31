@@ -8,9 +8,13 @@ Dự án này là web tĩnh chạy trên điện thoại làm sinh nhật cho 1 
 # Video 1 
 https://res.cloudinary.com/dbim9avit/video/upload/v1774954944/video_kpwsuk.mp4
 # Video 2
+https://res.cloudinary.com/dbim9avit/video/upload/v1774956193/video_6_fun65g.mp4
+# Video 3
 https://res.cloudinary.com/dbim9avit/video/upload/v1774954942/video_1_occlim.mp4
-# video 3
+# video 4
 https://res.cloudinary.com/dbim9avit/video/upload/v1774954946/video_2_atk7lq.mp4
+# Video 5
+https://res.cloudinary.com/dbim9avit/video/upload/v1774956193/video_4_sxwoua.mp4
 
 ### LINK HÌNH
 # Hình 1
