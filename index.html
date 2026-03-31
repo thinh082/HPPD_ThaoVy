@@ -269,31 +269,31 @@
     <!-- Video Section -->
     <div id="video-section" class="fixed inset-0 z-40 hidden opacity-0 transition-opacity duration-500 bg-[#fff4f6] pt-[72px] pb-[88px] overflow-y-scroll snap-y snap-mandatory bg-black">
         <div class="h-full w-full snap-center relative flex justify-center items-center">
-            <video src="https://res.cloudinary.com/dbim9avit/video/upload/v1774954944/video_kpwsuk.mp4" class="h-full w-full object-cover" loop preload="metadata" playsinline></video>
+            <video src="https://res.cloudinary.com/dbim9avit/video/upload/v1774954944/video_kpwsuk.mp4" class="h-full w-full object-cover" loop preload="auto" playsinline></video>
             <div class="absolute inset-0 flex items-center justify-center transition-opacity cursor-pointer play-pause-trigger">
                 <span class="material-symbols-outlined text-white text-6xl drop-shadow-lg" data-icon="play_circle" style="text-shadow: 0px 4px 12px rgba(0,0,0,0.5);">play_circle</span>
             </div>
         </div>
         <div class="h-full w-full snap-center relative flex justify-center items-center">
-            <video src="https://res.cloudinary.com/dbim9avit/video/upload/v1774956193/video_6_fun65g.mp4" class="h-full w-full object-cover" loop preload="metadata" playsinline></video>
+            <video src="https://res.cloudinary.com/dbim9avit/video/upload/v1774956193/video_6_fun65g.mp4" class="h-full w-full object-cover" loop preload="auto" playsinline></video>
             <div class="absolute inset-0 flex items-center justify-center transition-opacity cursor-pointer play-pause-trigger">
                 <span class="material-symbols-outlined text-white text-6xl drop-shadow-lg" data-icon="play_circle" style="text-shadow: 0px 4px 12px rgba(0,0,0,0.5);">play_circle</span>
             </div>
         </div>
         <div class="h-full w-full snap-center relative flex justify-center items-center">
-            <video src="https://res.cloudinary.com/dbim9avit/video/upload/v1774954942/video_1_occlim.mp4" class="h-full w-full object-cover" loop preload="metadata" playsinline></video>
+            <video src="https://res.cloudinary.com/dbim9avit/video/upload/v1774954942/video_1_occlim.mp4" class="h-full w-full object-cover" loop preload="auto" playsinline></video>
             <div class="absolute inset-0 flex items-center justify-center transition-opacity cursor-pointer play-pause-trigger">
                 <span class="material-symbols-outlined text-white text-6xl drop-shadow-lg" data-icon="play_circle" style="text-shadow: 0px 4px 12px rgba(0,0,0,0.5);">play_circle</span>
             </div>
         </div>
         <div class="h-full w-full snap-center relative flex justify-center items-center">
-            <video src="https://res.cloudinary.com/dbim9avit/video/upload/v1774954946/video_2_atk7lq.mp4" class="h-full w-full object-cover" loop preload="metadata" playsinline></video>
+            <video src="https://res.cloudinary.com/dbim9avit/video/upload/v1774954946/video_2_atk7lq.mp4" class="h-full w-full object-cover" loop preload="auto" playsinline></video>
             <div class="absolute inset-0 flex items-center justify-center transition-opacity cursor-pointer play-pause-trigger">
                 <span class="material-symbols-outlined text-white text-6xl drop-shadow-lg" data-icon="play_circle" style="text-shadow: 0px 4px 12px rgba(0,0,0,0.5);">play_circle</span>
             </div>
         </div>
         <div class="h-full w-full snap-center relative flex justify-center items-center">
-            <video src="https://res.cloudinary.com/dbim9avit/video/upload/v1774956193/video_4_sxwoua.mp4" class="h-full w-full object-cover" loop preload="metadata" playsinline></video>
+            <video src="https://res.cloudinary.com/dbim9avit/video/upload/v1774956193/video_4_sxwoua.mp4" class="h-full w-full object-cover" loop preload="auto" playsinline></video>
             <div class="absolute inset-0 flex items-center justify-center transition-opacity cursor-pointer play-pause-trigger">
                 <span class="material-symbols-outlined text-white text-6xl drop-shadow-lg" data-icon="play_circle" style="text-shadow: 0px 4px 12px rgba(0,0,0,0.5);">play_circle</span>
             </div>
@@ -336,13 +336,18 @@
 
             if (tabId === 'video') {
                 // UI changes
+                videoSection.classList.remove('hidden'); // allow intersection observer to catch the click context
                 homeSection.classList.replace('opacity-100', 'opacity-0');
                 homeSection.classList.replace('visible', 'invisible');
                 setTimeout(() => {
                     homeSection.classList.add('hidden');
-                    videoSection.classList.remove('hidden');
                     setTimeout(() => {
                         videoSection.classList.replace('opacity-0', 'opacity-100');
+                        // Try to play the most visible video immediately to secure browser autoplay allowance
+                        const firstVideo = document.querySelector('#video-section video');
+                        if (firstVideo && firstVideo.paused) {
+                            firstVideo.play().catch(e => console.log('Autoplay block:', e));
+                        }
                     }, 50);
                 }, 300);
 
