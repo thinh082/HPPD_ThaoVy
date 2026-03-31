@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Chúc mừng sinh nhật! - Thảo Vy</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed": "#9ae1ff",
+                        "error-container": "#fb5151",
+                        "surface": "#fff4f6",
+                        "outline": "#9c677d",
+                        "inverse-primary": "#ff7eb3",
+                        "secondary-fixed-dim": "#8cd3f0",
+                        "on-error": "#ffefee",
+                        "tertiary-container": "#ffd709",
+                        "tertiary": "#6c5a00",
+                        "on-surface": "#4a2134",
+                        "secondary": "#04647d",
+                        "surface-container-high": "#ffd8e5",
+                        "primary-fixed-dim": "#ef71a5",
+                        "on-primary-fixed-variant": "#69003b",
+                        "surface-bright": "#fff4f6",
+                        "surface-container-low": "#ffecf1",
+                        "secondary-container": "#9ae1ff",
+                        "on-tertiary-container": "#5b4b00",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ffd709",
+                        "surface-container": "#ffe0ea",
+                        "on-tertiary": "#fff2cd",
+                        "on-tertiary-fixed": "#453900",
+                        "on-primary-fixed": "#21000f",
+                        "secondary-dim": "#00576e",
+                        "on-background": "#4a2134",
+                        "surface-tint": "#9f3164",
+                        "on-error-container": "#570008",
+                        "on-primary-container": "#580031",
+                        "on-surface-variant": "#7e4d61",
+                        "on-secondary-fixed": "#003d4f",
+                        "surface-variant": "#ffd1e1",
+                        "inverse-surface": "#220213",
+                        "tertiary-dim": "#5e4e00",
+                        "background": "#fff4f6",
+                        "inverse-on-surface": "#c68da3",
+                        "primary-dim": "#902558",
+                        "error": "#b31b25",
+                        "primary": "#9f3164",
+                        "error-dim": "#9f0519",
+                        "primary-fixed": "#ff7eb3",
+                        "on-secondary-fixed-variant": "#005c74",
+                        "on-tertiary-fixed-variant": "#665500",
+                        "surface-container-highest": "#ffd1e1",
+                        "outline-variant": "#d89cb3",
+                        "tertiary-fixed-dim": "#efc900",
+                        "on-secondary": "#e3f6ff",
+                        "on-primary": "#ffeff2",
+                        "primary-container": "#ff7eb3",
+                        "surface-dim": "#ffc4da",
+                        "on-secondary-container": "#005267"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+
+        .confetti-canvas {
+            background-image:
+                radial-gradient(circle at 10% 10%, #9ae1ff 2px, transparent 2px),
+                radial-gradient(circle at 90% 20%, #ffd709 3px, transparent 3px),
+                radial-gradient(circle at 50% 50%, #ff7eb3 2px, transparent 2px),
+                radial-gradient(circle at 20% 80%, #9ae1ff 4px, transparent 4px),
+                radial-gradient(circle at 80% 90%, #ffd709 2px, transparent 2px);
+            background-size: 150px 150px;
+            opacity: 0.4;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-surface font-body text-on-surface antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+    <!-- TopAppBar -->
+    <header
+        class="fixed top-0 w-full z-50 bg-[#fff4f6]/60 backdrop-blur-md shadow-[0_24px_32px_-4px_rgba(74,33,52,0.06)]">
+        <div class="flex justify-between items-center px-6 py-4 w-full">
+            <div class="flex items-center gap-2 transition-opacity hover:opacity-80">
+                <span class="material-symbols-outlined text-[#9f3164]" data-icon="celebration">celebration</span>
+                <span class="text-xl font-bold italic text-[#9f3164] font-headline">The Jubilant Editorial</span>
+            </div>
+            <nav class="hidden md:flex gap-8">
+                <a class="text-[#9f3164] font-bold font-headline transition-opacity hover:opacity-80" href="#">Trang
+                    chủ</a>
+                <a class="text-[#4a2134]/70 font-headline transition-opacity hover:opacity-80" href="#">Video</a>
+                <a class="text-[#4a2134]/70 font-headline transition-opacity hover:opacity-80" href="#">Thư viện ảnh</a>
+            </nav>
+            <button class="material-symbols-outlined text-[#9f3164] transition-opacity hover:opacity-80"
+                data-icon="menu">menu</button>
+        </div>
+    </header>
+    <main class="relative pt-24 pb-32">
+        <!-- Background Decoration (Confetti Canvas) -->
+        <div class="fixed inset-0 pointer-events-none confetti-canvas z-0"></div>
+        <!-- Hero Section -->
+        <section class="relative px-6 md:px-12 lg:px-24 mb-16 z-10">
+            <div class="max-w-6xl mx-auto flex flex-col items-center text-center gap-8">
+                <div
+                    class="relative w-full max-w-4xl aspect-[16/9] rounded-xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.01]">
+                    <img alt="Happy Birthday Celebration" class="w-full h-full object-cover"
+                        data-alt="Candid high-end photography of a festive birthday party scene with soft pink and blue balloons, warm ambient indoor lighting, and scattered golden confetti"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP6L56_GSMHzkKfaB5BatYdjzcSTUeFfZU_OHWMJmnpr3BLSFvrSlGc-VDAafcpyihA5b_76kQ-HOfL5n7g-vGvN0ud8zB_6H2DPrhPI55VEcvq5IoG9VUpUKJJ4Fo74j_nD5hrxhZ-cCkNXkDZInE76uoVIvHIyl6So9Hcs02_hX7GI4vy6K8Pneb32r7RDs50JJkCqa2dSx-TAmh-c2Ezy1rvbmT62_HMJZebBr_z0FycO3Rde3Yml3ut2R2u10tIc8GEYqkLg-S" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#4a2134]/40 to-transparent"></div>
+                </div>
+                <div class="space-y-4 max-w-2xl">
+                    <h1
+                        class="text-6xl md:text-8xl font-black font-headline tracking-tighter text-primary leading-none">
+                        Chúc mừng Sinh nhật!
+                    </h1>
+                    <p class="text-lg md:text-xl text-on-surface/80 leading-relaxed font-medium">
+                        Chúc bé Me sinh nhật vui vẻ , học tập , công việc , tình yêu thuận lợi vui vẻ và hạnh phúc
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Feature Bento Grid (Quick Links) -->
+        <section class="relative px-6 md:px-12 lg:px-24 z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Video Gallery Card -->
+            <div
+                class="md:col-span-2 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between group cursor-pointer transition-all hover:bg-surface-container-high shadow-sm">
+                <div class="flex justify-between items-start">
+                    <div class="space-y-2">
+                        <span
+                            class="bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-bold font-headline uppercase tracking-widest">Mới
+                            Phát Hành</span>
+                        <h3 class="text-3xl font-bold font-headline text-on-surface">Thước phim động</h3>
+                    </div>
+                    <span class="material-symbols-outlined text-4xl text-primary" data-icon="movie">movie</span>
+                </div>
+                <div class="mt-12 flex items-end justify-between">
+                    <p class="text-on-surface-variant max-w-xs">Sống lại những tiếng cười qua bộ sưu tập video
+                        được chọn lọc kỹ lưỡng.</p>
+                    <div
+                        class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary transition-transform group-hover:translate-x-2">
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Image Gallery Card -->
+            <div
+                class="bg-secondary-container rounded-xl p-8 flex flex-col justify-between group cursor-pointer transition-all hover:opacity-90 shadow-sm min-h-[300px]">
+                <div class="flex flex-col gap-2">
+                    <span class="material-symbols-outlined text-4xl text-on-secondary-container"
+                        data-icon="photo_library">photo_library</span>
+                    <h3 class="text-3xl font-bold font-headline text-on-secondary-container">Bắt trọn Niềm vui</h3>
+                </div>
+                <div class="mt-8">
+                    <p class="text-on-secondary-container/80 text-sm font-medium mb-4">Mỗi khung hình kể một câu chuyện
+                        về hành trình
+                        tuyệt vời này.</p>
+                    <div class="flex -space-x-4">
+                        <div class="w-10 h-10 rounded-full border-4 border-secondary-container overflow-hidden">
+                            <img alt="Gallery preview" class="w-full h-full object-cover"
+                                data-alt="Close up of a happy person laughing at a party"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnyQUD5oY-2wztkHuhiHNvvDjMWMiaSHO-Im7hkV8_tQ-jZf6YGbwUXErwi9CdZL4-Qh7hZO4SyLmZdfX9fsEp4wrfMKXtdP8XH4Ao1SRZ6UOGsTV2PYPTz-gc16O2OpTVdcLVXP303Iv-NuoA2G1IB8lj6ssFzsfFJMggf_6GqlzL6BiCvvwtF0x9t-odlaLMQuZwMsaX4uSwyEA-pvZ0TeVijGaXq05rweiTCBEUFdGCfOsLpH8h0DY1wDUIJ3PgVSFQuQNTE5KF" />
+                        </div>
+                        <div class="w-10 h-10 rounded-full border-4 border-secondary-container overflow-hidden">
+                            <img alt="Gallery preview" class="w-full h-full object-cover"
+                                data-alt="Detail of a colorful birthday cake with lit candles"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUYXJH79G_4YoIoTvxaRAMNVVaRfWN74DFkDlhnr0U-lQuBCfNwbB9XkBpvxr-Lorij-YnYD9BIbISHJwtxM_Y83f6OxUIly4KkqRGeiVyo00RxixTTkohukKWwLo0WqZX9Jirk_vSk4ajHPqhmDeUDSoeaqBH4fYMKOytUBHhOZfUxTKpPX6GWegOgVp5eeSE013A14evGi8FT8STkJ56gfkkCg8vwpCZvaxdUgY1cRLH3elkB4KgnHF1XYTov4o4MegbikDe-lO-" />
+                        </div>
+                        <div class="w-10 h-10 rounded-full border-4 border-secondary-container overflow-hidden">
+                            <img alt="Gallery preview" class="w-full h-full object-cover"
+                                data-alt="Wide shot of friends toasting with colorful cocktails"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxRSI589qiYibpH4_mBQDVsyxPdXDR86oDBDEMr8HQvlDqej1mutQpAIsJSZ-MNjxdOpCMmolr8U8acjafntJ48I6U6O86NaK-YngX1pFZ_5rcrX7wGIuizoavXjTz3EPcCQ2mas3jBYOtCotO_F2PkC8Eph_dVadaiy6T-mOMq83KPNvAK-yW1KZLDDr-lJQNGsFjOD9WzIhMzplo88qN3vYSVgCGqh4k7NVV2wIDVsL0rkQDPUfjBGhnXS5oJn7xJr3F8ez85I8Z" />
+                        </div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-xs font-bold text-secondary">
+                            +12</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Audio/Playlist Card -->
+            <div
+                class="bg-surface-container rounded-xl p-8 flex flex-col gap-6 cursor-pointer hover:bg-surface-variant transition-colors shadow-sm">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center">
+                        <span class="material-symbols-outlined text-on-tertiary-container"
+                            data-icon="audiotrack">audiotrack</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold font-headline">Tuyển tập mừng Sinh nhật</h4>
+                        <p class="text-xs text-on-surface-variant">Đang phát: Những khúc ca kỷ niệm</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 overflow-hidden">
+                    <div class="h-1 bg-primary w-1/3 rounded-full"></div>
+                    <div class="h-1 bg-primary-container w-2/3 rounded-full"></div>
+                </div>
+            </div>
+            <!-- Wishes/Messages Card -->
+            <div
+                class="md:col-span-2 bg-surface-container-lowest border border-outline-variant/15 rounded-xl p-8 flex items-center justify-between shadow-[0_24px_32px_-4px_rgba(74,33,52,0.04)]">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 rounded-2xl bg-surface-container flex items-center justify-center">
+                        <span class="material-symbols-outlined text-3xl text-primary"
+                            data-icon="auto_awesome">auto_awesome</span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold font-headline text-on-surface">Lời chúc Sinh nhật</h3>
+                        <p class="text-on-surface-variant">42 tin nhắn mới từ bạn bè và người thân</p>
+                    </div>
+                </div>
+                <button
+                    class="bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold text-sm hover:opacity-90">Xem
+                    tất cả</button>
+            </div>
+        </section>
+        <!-- Decorative Quote Section -->
+        <section class="py-24 px-6 text-center z-10 relative">
+            <div class="max-w-2xl mx-auto italic font-medium text-2xl text-primary/80">
+                "Cuộc sống là một bữa tiệc, và hôm nay bạn là ngôi sao. Hãy cứ tỏa sáng nhé!"
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full py-16 px-8 mt-20 bg-[#ffecf1] dark:bg-[#4a2134] flex flex-col items-center gap-6 text-center">
+        <div class="text-lg font-bold text-[#9f3164] font-headline">The Jubilant Editorial</div>
+        <div class="flex gap-8 text-[#4a2134]/60 font-label">
+            <a class="hover:text-[#9ae1ff] transition-colors" href="#">Bảo mật</a>
+            <a class="underline decoration-[#9ae1ff] decoration-2" href="#">Xác nhận tham dự</a>
+            <a class="hover:text-[#9ae1ff] transition-colors" href="#">Tạo bởi</a>
+        </div>
+        <p class="font-['Be_Vietnam_Pro'] text-label-md text-[#4a2134]/60">© 2024 The Kinetic Keepsake. Được tạo ra với
+            niềm vui.</p>
+    </footer>
+    <!-- BottomNavBar (Mobile Only) -->
+    <nav
+        class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-[#fff4f6]/60 backdrop-blur-md shadow-[0_-8px_24px_rgba(74,33,52,0.04)] rounded-t-[3rem] flex justify-around items-center px-4 pb-4 pt-2">
+        <a class="flex flex-col items-center justify-center bg-[#ffe0ea] text-[#9f3164] rounded-full px-4 py-1"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="home"
+                style="font-variation-settings: 'FILL' 1;">home</span>
+            <span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium">Trang chủ</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-[#4a2134] hover:bg-[#ffecf1] rounded-full p-2 transition-all"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="movie">movie</span>
+            <span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium">Video</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-[#4a2134] hover:bg-[#ffecf1] rounded-full p-2 transition-all"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="audiotrack">audiotrack</span>
+            <span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium">Âm thanh</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-[#4a2134] hover:bg-[#ffecf1] rounded-full p-2 transition-all"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="photo_library">photo_library</span>
+            <span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium">Thư viện</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-[#4a2134] hover:bg-[#ffecf1] rounded-full p-2 transition-all"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+            <span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium">Lời chúc</span>
+        </a>
+    </nav>
+</body>
+
+</html>
