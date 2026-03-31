@@ -1,17 +1,20 @@
 let bgAudio = null;
+let wishesAudio = null;
 
 // SPA Tab Switching Logic
 function switchTab(tabId) {
     const sections = {
         home: document.getElementById('home-section'),
         video: document.getElementById('video-section'),
-        gallery: document.getElementById('gallery-section')
+        gallery: document.getElementById('gallery-section'),
+        wishes: document.getElementById('wishes-section')
     };
     
     const navBtns = {
         home: document.getElementById('nav-btn-home'),
         video: document.getElementById('nav-btn-video'),
-        gallery: document.getElementById('nav-btn-gallery')
+        gallery: document.getElementById('nav-btn-gallery'),
+        wishes: document.getElementById('nav-btn-wishes')
     };
 
     // 1. Hide all blocks first
@@ -39,15 +42,22 @@ function switchTab(tabId) {
             }
         });
         
-        // Resume background audio if returning to non-video tab
-        if (bgAudio && bgAudio.paused) {
-            bgAudio.play().catch(e => console.log('Audio autoplay blocked'));
+        // Resume specific background audio
+        if (tabId === 'wishes') {
+            if (bgAudio && !bgAudio.paused) bgAudio.pause();
+            if (wishesAudio && wishesAudio.paused) {
+                wishesAudio.play().catch(e => console.log('Audio autoplay blocked'));
+            }
+        } else {
+            if (wishesAudio && !wishesAudio.paused) wishesAudio.pause();
+            if (bgAudio && bgAudio.paused) {
+                bgAudio.play().catch(e => console.log('Audio autoplay blocked'));
+            }
         }
     } else {
-        // Pause background audio when in video tab
-        if (bgAudio && !bgAudio.paused) {
-            bgAudio.pause();
-        }
+        // Pause all background audio when in video tab
+        if (bgAudio && !bgAudio.paused) bgAudio.pause();
+        if (wishesAudio && !wishesAudio.paused) wishesAudio.pause();
     }
 
     // 3. Show requested tab
@@ -222,22 +232,68 @@ async function loadAudio() {
         if (audioList.length > 0) {
             bgAudio = new Audio(audioList[0]);
             bgAudio.loop = true;
-            
-            // Try to play on first interaction 
-            const unlockAudio = () => {
-                const videoSection = document.getElementById('video-section');
-                // Only autoplay if we are not currently in the video tab
-                if (bgAudio.paused && (!videoSection || videoSection.classList.contains('hidden'))) {
-                    bgAudio.play().catch(e => console.log('Autoplay blocked'));
-                }
-                document.body.removeEventListener('click', unlockAudio);
-                document.body.removeEventListener('touchstart', unlockAudio);
-            };
-            document.body.addEventListener('click', unlockAudio);
-            document.body.addEventListener('touchstart', unlockAudio);
         }
+        if (audioList.length > 1) {
+            wishesAudio = new Audio(audioList[1]);
+            wishesAudio.loop = true;
+        }
+            
+        // Try to play on first interaction 
+        const unlockAudio = () => {
+            const videoSection = document.getElementById('video-section');
+            const wishesSection = document.getElementById('wishes-section');
+            
+            // Only autoplay if we are not currently in the video tab
+            if (!videoSection || videoSection.classList.contains('hidden')) {
+                if (wishesSection && !wishesSection.classList.contains('hidden')) {
+                    if (wishesAudio && wishesAudio.paused) wishesAudio.play().catch(e => console.log('Autoplay blocked'));
+                } else {
+                    if (bgAudio && bgAudio.paused) bgAudio.play().catch(e => console.log('Autoplay blocked'));
+                }
+            }
+            document.body.removeEventListener('click', unlockAudio);
+            document.body.removeEventListener('touchstart', unlockAudio);
+        };
+        document.body.addEventListener('click', unlockAudio);
+        document.body.addEventListener('touchstart', unlockAudio);
     } catch (error) {
         console.error('Error loading audio:', error);
+    }
+}
+
+// Fetch and Setup Wishes
+async function loadWishes() {
+    try {
+        const response = await fetch('loichuc.json');
+        if (!response.ok) throw new Error('Failed to load wishes');
+        const wishesList = await response.json();
+        
+        const wishesContainer = document.getElementById('wishes-container');
+        wishesContainer.innerHTML = '';
+        
+        wishesList.forEach(wish => {
+            if (!wish.ten || !wish.loichuc) return; // Skip empty blocks
+            
+            const initial = wish.ten.charAt(0).toUpperCase();
+            const card = document.createElement('div');
+            card.className = "bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-sm border border-white/80 relative overflow-hidden transform transition-all hover:-translate-y-1";
+            
+            card.innerHTML = `
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#ff9edb] to-[#ffc1e3] flex items-center justify-center text-white font-bold text-xl drop-shadow-sm shrink-0">
+                        ${initial}
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="font-bold font-headline text-[#9f3164] text-lg">${wish.ten}</h3>
+                        <p class="text-[#4a2134]/90 text-[15px] leading-relaxed font-medium italic">"${wish.loichuc}"</p>
+                    </div>
+                </div>
+            `;
+            wishesContainer.appendChild(card);
+        });
+        
+    } catch (error) {
+        console.error('Error loading wishes:', error);
     }
 }
 
@@ -246,4 +302,5 @@ document.addEventListener('DOMContentLoaded', () => {
     loadAudio();
     loadVideos();
     loadGallery();
+    loadWishes();
 });
