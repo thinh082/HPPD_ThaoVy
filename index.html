@@ -124,7 +124,8 @@
                     onclick="switchTab('home')">Trang chủ</button>
                 <button class="text-[#4a2134]/70 font-headline transition-opacity hover:opacity-80"
                     onclick="switchTab('video')">Video</button>
-                <button class="text-[#4a2134]/70 font-headline transition-opacity hover:opacity-80">Thư viện
+                <button class="text-[#4a2134]/70 font-headline transition-opacity hover:opacity-80"
+                    onclick="switchTab('gallery')">Thư viện
                     ảnh</button>
             </nav>
             <button class="material-symbols-outlined text-[#9f3164] transition-opacity hover:opacity-80"
@@ -270,6 +271,19 @@
         class="fixed inset-0 z-40 hidden opacity-0 transition-opacity duration-500 bg-[#fff4f6] pt-[72px] pb-[88px] overflow-y-scroll snap-y snap-mandatory bg-black">
         <!-- Rendered dynamically via fetch API by index.js -->
     </div>
+    
+    <!-- Gallery Section (Horizontal Swipe) -->
+    <div id="gallery-section"
+        class="fixed inset-0 z-40 hidden opacity-0 transition-opacity duration-500 bg-black pt-[72px] pb-[88px]">
+        <!-- Gallery Header & Counter -->
+        <div class="absolute top-24 right-6 bg-black/50 text-white rounded-full px-4 py-1 text-sm font-bold z-50 transition-opacity duration-300 pointer-events-none backdrop-blur-sm">
+            <span id="gallery-current">1</span> / <span id="gallery-total">0</span>
+        </div>
+        <!-- Scroll Container -->
+        <div id="gallery-scroll" class="flex flex-row overflow-x-scroll snap-x snap-mandatory w-full h-full">
+            <!-- Rendered dynamically by index.js -->
+        </div>
+    </div>
     <!-- BottomNavBar (Mobile Only) -->
     <nav
         class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-[#fff4f6]/60 backdrop-blur-md shadow-[0_-8px_24px_rgba(74,33,52,0.04)] rounded-t-[3rem] flex justify-around items-center px-4 pb-4 pt-2">
@@ -291,11 +305,11 @@
             <span class="material-symbols-outlined" data-icon="audiotrack">audiotrack</span>
             <span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium">Âm thanh</span>
         </a>
-        <a class="flex flex-col items-center justify-center text-[#4a2134] hover:bg-[#ffecf1] rounded-full p-2 transition-all"
-            href="#">
+        <button id="nav-btn-gallery" class="flex flex-col items-center justify-center text-[#4a2134] hover:bg-[#ffecf1] rounded-full p-2 transition-all"
+            onclick="switchTab('gallery')">
             <span class="material-symbols-outlined" data-icon="photo_library">photo_library</span>
             <span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium">Thư viện</span>
-        </a>
+        </button>
         <a class="flex flex-col items-center justify-center text-[#4a2134] hover:bg-[#ffecf1] rounded-full p-2 transition-all"
             href="#">
             <span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
